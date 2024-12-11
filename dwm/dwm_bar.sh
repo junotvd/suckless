@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+
+delim = "|"
 
 get_info() {
     datetime=$(date '+%d-%m-%Y %H:%M:%S')
@@ -7,7 +9,7 @@ get_info() {
 
     meminfo=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
 
-    xsetroot -name "BAT $battery% | MEM $meminfo | $datetime"
+    xsetroot -name "BAT $battery% $delim MEM $meminfo $delim $datetime"
 }
 
 while true; do
